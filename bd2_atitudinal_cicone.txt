@@ -1,0 +1,114 @@
+CREATE TABLE music(
+id UUID PRIMARY KEY,
+path VARCHAR(45) NOT NULL,
+title VARCHAR(45) NOT NULL UNIQUE,
+duration TIMESTAMP NOT NULL,
+data_post TIMESTAMP NOT NULL,
+singer VARCHAR(45) NOT NULL,
+composer VARCHAR(45) NOT NULL,
+poster BYTEA,
+gender VARCHAR(45) NOT NULL,
+);
+CREATE TABLE artists_composers(
+id UUID PRIMARY KEY,
+name VARCHAR(45) NOT NULL UNIQUE,
+date_birth TIMESTAMP NOT NULL,
+date_death TIMESTAMP NOT NULL,
+type VARCHAR(45) NOT NULL
+biography VARCHAR(70) NOT NULL,
+best_musc VARCHAR(45) NOT NULL UNIQUE,
+music_id REFERENCES musicas(id),
+);
+CREATE TABLE users(
+id UUID PRIMARY KEY,
+email VARCHAR(45) NOT NULL UNIQUE,
+password VARCHAR(10) NOT NULL,
+full_name VARCHAR(45) NOT NULL UNIQUE,
+age CHAR(2) NOT NULL,
+genre_musical VARCHAR(45) NOT NULL,
+creation_date TIMESTAMP NOT NULL,
+last_access TIMESTAMP NOT NULL,
+cell CHAR(13) NOT NULL,
+plan VARCHAR(45) NOT NULL,
+music_id REFERENCES musicas(id),
+);
+
+
+CADASTRAR 3 MUSICAS, 2 ARTISTAS, 3 COMPOSITORES E 2 USUARIOS
+
+MUSICAS:
+caminho.mp4
+Lets Go 4 
+10:28 
+01/02/24
+mc ig
+love funk
+img-poster
+funk
+
+MUSICAS:
+caminho.mp4
+Lets Go 3 
+9:06 
+27/08/23
+mc ig
+love funk
+img-poster
+funk
+
+MUSICAS:
+caminho.mp4
+Lets Go 2
+8:56 
+14/01/23
+mc ig
+love funk
+img-poster
+funk
+
+ARTISTAS:
+MC ig
+02/04/1998
+vivo
+cantor
+cantor de funk muito famoso
+LETS GO 4
+
+ARTISTAS:
+MC ph
+22/08/1996
+vivo
+cantor
+cantor de funk e trap revelação
+LETS GO 4
+COMPOSTORES: 
+veigh
+03/06/2001
+vivo
+cantor
+cantor de trap revelação 2023
+Clickbait
+
+USUARIOS:
+cauan.cicone@gmail.com
+493842
+Cauan Cicone
+15
+funk
+02/04/22
+31/03/24
+19981011316
+premium
+
+USUARIOS:
+jorge.lisboa@gmail.com
+85652
+Jorge Lisboa
+19
+rock
+22/03/20
+02/03/24
+19981853910
+gratuito
+
+
